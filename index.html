@@ -33,12 +33,20 @@
       <h2>あなたが次飲むお酒を選びます</h2>
     </div>
     <button type="button" id="btn" class="btn">タップ</button>
+    <div id="git" class="hidden">
+      <a href="https://github.com/shogokatoxx/"><img src="github-logo.png" style="width:200px;"></a>
+    </div>
     <script type="text/javascript">
-      const list = ["","スーパードライ","クリアアサヒ","日本酒","赤ワイン","白ワイン","ジントニック","ジンバック","ハイボール","コークハイ","梅酒","焼酎","緑茶ハイ","カクテル","チューハイ","烏龍茶","水"]
-      const str = ["","飲み過ぎには注意!!","著者が好きなのはビール","二日酔いには注意しましょう","ウコンの力は買いましたか?","ウェイウェイ!もっと飲みましょう","ここで一発ギャグを！"]
+      const list = ["","スーパードライ","クリアアサヒ","日本酒","赤ワイン","白ワイン",
+      "ジントニック","ジンバック","ハイボール","コークハイ","梅酒","焼酎","緑茶ハイ",
+      "カクテル","チューハイ","烏龍茶","水"]
+      const str = ["","飲み過ぎには注意!!","著者が好きなのはビール",
+      "二日酔いには注意しましょう","ウコンの力は買いましたか?",
+      "ウェイウェイ!もっと飲みましょう","ここで一発ギャグを！"]
       const btn = document.querySelector('.btn');
       const h1 = document.createElement('h1');
       const p = document.createElement('p');
+      let git = document.querySelector('#git');
 
       btn.addEventListener('click',() => {
         if(btn.textContent == "タップ"){
@@ -46,10 +54,12 @@
           var num2 = Math.floor(Math.random()*6+1);
           btn.textContent = ("戻る");
           btn.classList.remove('btn');
+          git.classList.remove('hidden');
           h1.textContent = list[num];
           document.body.appendChild(h1);
           p.textContent = str[num2];
           document.body.appendChild(p);
+
         }else{
           location.reload();
         }
