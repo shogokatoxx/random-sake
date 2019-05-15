@@ -32,22 +32,27 @@
     <div class="title">
       <h2>あなたが次飲むお酒を選びます</h2>
     </div>
-    <button type="button" class="btn">タップ</button>
+    <button type="button" id="btn" class="btn">タップ</button>
     <script type="text/javascript">
       const list = ["","スーパードライ","クリアアサヒ","日本酒","赤ワイン","白ワイン","ジントニック","ジンバック","ハイボール","コークハイ","梅酒","焼酎","緑茶ハイ","カクテル","チューハイ","烏龍茶","水"]
       const str = ["","飲み過ぎには注意!!","著者が好きなのはビール","二日酔いには注意しましょう","ウコンの力は買いましたか?","ウェイウェイ!もっと飲みましょう","ここで一発ギャグを！"]
-      const btn = document.querySelector('.btn');
+      const btn = document.querySelector('#btn');
       const h1 = document.createElement('h1');
       const p = document.createElement('p');
 
       btn.addEventListener('click',() => {
-        var num = Math.floor(Math.random()*16+1);
-        var num2 = Math.floor(Math.random()*6+1);
-        btn.classList.add('hidden')
-        h1.textContent = list[num];
-        document.body.appendChild(h1);
-        p.textContent = str[num2];
-        document.body.appendChild(p);
+        if(btn.textContent == "タップ"){
+          var num = Math.floor(Math.random()*16+1);
+          var num2 = Math.floor(Math.random()*6+1);
+          btn.textContent("戻る");
+          btn.classList.remove('btn');
+          h1.textContent = list[num];
+          document.body.appendChild(h1);
+          p.textContent = str[num2];
+          document.body.appendChild(p);
+        }else{
+          location.reload();
+        }
       })
     </script>
   </body>
