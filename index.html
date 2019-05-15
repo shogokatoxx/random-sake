@@ -44,7 +44,7 @@
         if(btn.textContent == "タップ"){
           var num = Math.floor(Math.random()*16+1);
           var num2 = Math.floor(Math.random()*6+1);
-          btn.textContent("戻る");
+          btn.textContent = ("戻る");
           btn.classList.remove('btn');
           h1.textContent = list[num];
           document.body.appendChild(h1);
