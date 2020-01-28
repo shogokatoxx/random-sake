@@ -5,36 +5,95 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ランダムお酒「Match」</title>
     <style>
-      body{
-        width:375px;
-        height:667px;
-        text-align:center;
+      @media screen and (min-width:769px){
+        body{
+          width:100%;
+          height:667px;
+          text-align:center;
+        }
+        .title{
+          margin-top:10%;
+        }
+        .btn{
+          width:100px;
+          height:100px;
+          border-radius:50%;
+          background-color:red;
+          color:white;
+          cursor:pointer;
+          text-align:center;
+          font-size:15px;
+        }
+        .hidden{
+          display:none;
+        }
+        h1{
+          color:red;
+        }
+        .osake-image{
+          float:left;
+        }
+        header{
+          width:100%;
+        }
+        #header-in{
+          width:375px;border-bottom:1px solid #999;margin:0 auto;
+        }
+        .osake-image img{
+          margin-left:150px;margin-top:50px;
+        }
+        .main{
+          float:right;margin-right:38%;
+        }
       }
-      .btn{
-        width:100px;
-        height:100px;
-        border-radius:50%;
-        background-color:red;
-        color:white;
-        cursor:pointer;
-        text-align:center;
-        font-size:15px;
-      }
-      .hidden{
-        display:none;
-      }
-      h1{
-        color:red;
+      @media screen and (max-width:768px){
+        body{
+          width:375px;
+          height:667px;
+          text-align:center;
+        }
+        .title{
+          margin-top:10%;
+        }
+        .btn{
+          width:100px;
+          height:100px;
+          border-radius:50%;
+          background-color:red;
+          color:white;
+          cursor:pointer;
+          text-align:center;
+          font-size:15px;
+        }
+        .hidden{
+          display:none;
+        }
+        h1{
+          color:red;
+        }
+        .osake-image{
+
+        }
       }
     </style>
   </head>
   <body>
-    <div class="title">
-      <h2>あなたが次飲むお酒を選びます</h2>
+    <header>
+      <div id="header-in">
+        <h1>Rondom-sake</h1>
+      </div>
+    </header>
+    <div class="osake-image">
+      <img src="gaman_osake.png" alt="お酒我慢" height="200" width="200">
     </div>
-    <button type="button" id="btn" class="btn">タップ</button>
-    <div id="git" class="hidden">
-      <a href="https://github.com/shogokatoxx/"><img src="github-logo.png" style="width:200px;" alt="広告"></a>
+    <div class="main" style="">
+      <div class="title">
+        <h2>あなたが次飲むお酒を選びます</h2>
+      </div>
+      <button type="button" id="btn" class="btn">タップ</button>
+      <div id="git" class="hidden">
+        <a href="https://github.com/shogokatoxx/"><img src="github-logo.png" style="width:200px;"></a>
+      </div>
     </div>
     <script type="text/javascript">
       const list = ["","スーパードライ","クリアアサヒ","日本酒","赤ワイン","白ワイン",
@@ -47,6 +106,7 @@
       const h1 = document.createElement('h1');
       const p = document.createElement('p');
       let git = document.querySelector('#git');
+      const main = document.querySelector('.main');
 
       btn.addEventListener('click',() => {
         if(btn.textContent == "タップ"){
@@ -56,9 +116,9 @@
           btn.classList.remove('btn');
           git.classList.remove('hidden');
           h1.textContent = list[num];
-          document.body.appendChild(h1);
+          main.appendChild(h1);
           p.textContent = str[num2];
-          document.body.appendChild(p);
+          main.appendChild(p);
 
         }else{
           location.reload();
